@@ -18,7 +18,7 @@ Shape your data according to your needs. There is no "one shape fits all".  Feel
 
 In Stata, `reshape` requires an index key `i()`, and what you would like to reshape on `j()`. In the example below, starting with the long data, they key is area in the top table, and we have reshaped wide on year, and in the second they key is year, and we have reshaped wide on area. You can restructure your data multiple times. Your key cannot have missing observations. You can reshape from wide to long, or long to wide. Reshaping can be done multiple times if you dataset allows it.
 
-**Table 12a. Long format data**
+**Table 11a. Long format data**
 
 | area | year | count |
 | :--- | :--- | :---- |
@@ -34,7 +34,7 @@ In Stata, `reshape` requires an index key `i()`, and what you would like to resh
 	reshape wide count, i(area) j(year)				
 ```
 
-**Table 12b. Wide format, by year.**
+**Table 11b. Wide format, by year.**
 
 | area | count2001 | count2002 | count2003 |
 | :--- | :-------- | :-------- | :-------- |
@@ -51,7 +51,7 @@ In Stata, `reshape` requires an index key `i()`, and what you would like to resh
 
 
 
-**Table 12c. Wide format, by area.**
+**Table 11c. Wide format, by area.**
 
 | year | countA | countB |
 | :--- | :----- | :----- |
@@ -131,7 +131,7 @@ Being able to `reshape` data is an important and powerful set of skills. Data ca
 
 The advantage of merging datasets is that it allows us to enrich our data with more information. When we merge data, we're making the dataset wider, however we may also change the total number of observations within the dataset, depending on the type of merge. 
 
-**Table 13. Merge types in Stata**
+**Table 12. Merge types in Stata**
 
 | merge type              | what does it mean                        | example                                  |
 | :---------------------- | :--------------------------------------- | :--------------------------------------- |
@@ -204,6 +204,7 @@ See how the local macro has been called within the loop. Run the following loop 
 		di "looping over number: `i'"
 	}
 ```
+** Table 13. Understanding the parts of a loop**
 
 | loop type | macroname | looping over      | in english                  | command                               |
 | :-------- | :-------- | :---------------- | :-------------------------- | :------------------------------------ |
