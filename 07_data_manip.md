@@ -121,7 +121,7 @@ Being able to `reshape` data is an important and powerful set of skills. Data ca
 
 
 
-### Joining datasets:  `merge` 
+### Joining datasets: `merge` 
 
 `merge` is a left-right join making our dataset wider by adding variables. When we `merge`, we select a key (a variable or combination of variables) which allows both datasets to identify what we are going to join on. 
 
