@@ -1,4 +1,4 @@
-## Introduction
+# Introduction
 
 This training will teach you how to clean, manipulate and manage data like a wizard. Importantly, the suggested code/commands are just one way to solve each problem, not the only way, you may find another way which gives the same results, and you prefer. This method will improve your ability to work in Stata autonomously.
 
