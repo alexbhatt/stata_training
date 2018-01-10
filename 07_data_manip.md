@@ -204,7 +204,7 @@ See how the local macro has been called within the loop. Run the following loop 
 		di "looping over number: `i'"
 	}
 ```
-** Table 13. Understanding the parts of a loop**
+**Table 13. Understanding the parts of a loop**
 
 | loop type | macroname | looping over      | in english                  | command                               |
 | :-------- | :-------- | :---------------- | :-------------------------- | :------------------------------------ |
