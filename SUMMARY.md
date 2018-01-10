@@ -1,6 +1,6 @@
 # Sections
 
-* [Before you start](manual_chapters/README.md)
+* [Before you start](README.md)
 
 * [Objectives](manual_chapters/01_objectives.md)
 
