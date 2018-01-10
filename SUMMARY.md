@@ -1,4 +1,4 @@
-training_manual.md# Sections
+# Sections
 
 * [Before you start](README.md)
 
