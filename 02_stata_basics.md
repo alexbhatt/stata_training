@@ -1,4 +1,3 @@
-
 # Stata basics
 
 ### Coding best practice
@@ -40,7 +39,7 @@ Comments work in Stata by either putting a `*` at the beginning of the line, or 
 
 Stata has two data types. String and numeric. The way Stata deals with each is different. 
 
-**Table 2. Differences between numeric and string data in Stata**
+**Table 1. Differences between numeric and string data in Stata**
 
 |                      | numeric                                  | strings                                  |
 | :------------------- | :--------------------------------------- | :--------------------------------------- |
@@ -70,7 +69,7 @@ As a reference, Stata commands always follow this general format. The commands h
 ```stata
 	bysort [varlist]: command [if] [, options]
 ```
-**Table 3. Stata command parts.**
+**Table 2. Stata command parts.**
 
 | Stata code          | What is it for                           |
 | :------------------ | :--------------------------------------- |
@@ -87,7 +86,7 @@ To run code in Stata, only the command is required, the other three parts are op
 
 Operators are the commands which you can use to evaluate expressions. Like math, an expression is a line of code which will be evaluated for a result. Remember your order of operations from math, same order applies (Brackets, Exponents, Multiplication/Division,Addition/Subtraction). But, we also have AND and OR. 
 
-**Table 4. Operators in Stata.**
+**Table 3. Operators in Stata.**
 
 | Stata code          | Operator                                 | Example                                 | Purpose                                  |
 | :------------------ | :--------------------------------------- | :-------------------------------------- | :--------------------------------------- |
