@@ -15,6 +15,62 @@ In a [clean/tidy dataset](https://en.wikipedia.org/wiki/Tidy_data):
 Remember, Stata can work with both numbers and strings. However, Stata codes a missing value differently depending on what format it's in. In numeric variables, missing values are represented with a full stop `.`; for string variables, a missing value is represented with back-to-back double quotes `""`. If you have a choice, I recommend that variables containing all numbers are converted to numeric, and not kept as strings. They are easier to work with.
 
 
+### String functions and regular expressions
+
+String variables in Stata can be messy and infuriating. As they can contain literally any character, they have have text, numbers or symbols, sometimes all three. Luckily, its okay.
+
+String functions are your friend. These are a set of inbuilt commands within Stata to enable you to systematically work with strings. Using these, you can search part of a string, do replacements, or more simple things like change a string to be all upper case. You can use these edit strings, or to make evaluations in if-statements. Often when working with strings, its helpful to change them all or upper or lowercase as `"CASE"!="case"`. 
+
+Remember, that unless you're putting a variable name in the `str` position for these commands, it needs to be in `""`; `di` is used to print out results in the display. Test out the example code in your command line.
+
+
+**Table 5. String functions and regular expressions in Stata.**
+
+| **Command**                 | **What does it do**                      | Example                                  | Result            |
+| :-------------------------- | :--------------------------------------- | :--------------------------------------- | :---------------- |
+| `length(str)`               | returns number of characters in `str`    | `di length("ALEX")`                      | `4`               |
+| `word(str,n)`               | returns nth word from `str` (if n<0 starts counting from right) | `di word("ALEX SAID LEARN STATA",2)`     | `SAID`            |
+| `reverse(str)`              | returns `str` reversed                   | `di reverse("LEARN")`                    | `NRAEL`           |
+| `trim(str)`                 | removes spaces on beginning and end of `str` | `di trim(" STATA ")`                     | `STATA`           |
+| `lower(str)`                | returns `str` without lowercase letters only | `di lower("STRING")`                     | `string`          |
+| `upper(str)`                | converts all letters to uppercase        | `di upper("functions")`                  | `FUNCTIONS`       |
+| `proper(str)`               | capitalizes all letters not preceded by letters | `di proper("for real")`                  | `For Real`        |
+| `strpos(str1,str2)`         | returns position of `str2` in `str1`     | `di strpos("STRINGS","R")`               | `3`               |
+| `substr(str,n1,n2)`         | extracts characters n1 through n2 from `str`; n1<0 starts from right | `di substr("IN STATA",1,2)`<br /> `di substr("IN STATA",-5,5)` | `IN`<br />`STATA` |
+| `subinstr(str,sub1,sub2,.)` | replaces all instances of `str1` with `str2` in `str` | `di subinstr("STATA","T","7")`           | `S7A7A`           |
+| `regexm(str,re)`            | evaluates whether `str` matches regular expression `regex`; results in a 1/0 output meaning TRUE/FALSE | `di regexm("ARE OKAY","A")`              | `1`               |
+| `regexr(str1, re, str2)`    | replaces the first substring of `str1` that matches reg. exp. `re` with `str2` | `di regexr("STATA","T","7")`             | `S7ATA`           |
+
+Regular expression match, or `regexm`, is a powerful string tool which can be used in an evaluation as it outputs a TRUE/FALSE result as 1/0, respectively. For example, say I had a dataset where the `travel_abroad` variable was completed as an open source field, and people entering data had input: "UNK", "UNKNOWN", "unk", "unknwn" and "Unknown" when they didn't know.
+
+```stata 
+*i	this will capture all the variations that contain "unk" anywhere, ignoring case
+	replace travel_abroad="Unknown" if lower(regexm(travel_abroad,"unk"))
+```
+
+Regular expressions are more powerful then regular string functions. They have added function which allow you to search if a string starts, or ends with a set of characters, or to use wildcards. [For more detail on regular expressions, and how to use *all* the wildcards, click here.](https://www.stata.com/support/faqs/data-management/regular-expressions/)
+
+```stata
+	gen x=1 if regexm(forename,"^A")	// if the forename variable starts with "A"
+	gen y=1 if regexm(surname,"A$")		// if the surname ends with "A"
+	
+*i	just say we have Steve, Stephen, Stefen, and Steven in our dataset but we want them all.
+	replace forename=upper(forename)
+	gen steve=1 if regexm(forename,"STE*E")
+```
+
+Note the key difference in results between regexr and subinstr. This one is important. String functions can be combined as well. Remember, order and brackets matter. Paste these into Stata to see:
+
+```stata
+	di regexr("ALEX WANTS YOU TO LEARN STATA STRING FUNCTIONS","A","4")
+	di subinstr("SERIOUSLY. LEARN STATA STRING FUNCTIONS","S","5",.)
+
+	di "`c(username)'"
+	di proper("hello "+substr("`c(username)'",1,strpos("`c(username)'",".")))
+```
+
+
+
 
 ### Generate and Replace
 
@@ -85,65 +141,6 @@ There is no correct way that you should format display your dates. Use whatever 
 		replace date=date(string_date,"MDY") if date==.
 		format date %td_D/N/CY	// after the %td_ lets you choose how you format the date
 ```
-
-
-
-### String functions and regular expressions
-
-String variables in Stata can be messy and infuriating. As they can contain literally any character, they have have text, numbers or symbols, sometimes all three. Luckily, its okay.
-
-String functions are your friend. These are a set of inbuilt commands within Stata to enable you to systematically work with strings. Using these, you can search part of a string, do replacements, or more simple things like change a string to be all upper case. You can use these edit strings, or to make evaluations in if-statements. Often when working with strings, its helpful to change them all or upper or lowercase as `"CASE"!="case"`. 
-
-Remember, that unless you're putting a variable name in the `str` position for these commands, it needs to be in `""`; `di` is used to print out results in the display. Test out the example code in your command line.
-
-
-
-
-**Table 5. String functions and regular expressions in Stata.**
-
-| **Command**                 | **What does it do**                      | Example                                  | Result            |
-| :-------------------------- | :--------------------------------------- | :--------------------------------------- | :---------------- |
-| `length(str)`               | returns number of characters in `str`    | `di length("ALEX")`                      | `4`               |
-| `word(str,n)`               | returns nth word from `str` (if n<0 starts counting from right) | `di word("ALEX SAID LEARN STATA",2)`     | `SAID`            |
-| `reverse(str)`              | returns `str` reversed                   | `di reverse("LEARN")`                    | `NRAEL`           |
-| `trim(str)`                 | removes spaces on beginning and end of `str` | `di trim(" STATA ")`                     | `STATA`           |
-| `lower(str)`                | returns `str` without lowercase letters only | `di lower("STRING")`                     | `string`          |
-| `upper(str)`                | converts all letters to uppercase        | `di upper("functions")`                  | `FUNCTIONS`       |
-| `proper(str)`               | capitalizes all letters not preceded by letters | `di proper("for real")`                  | `For Real`        |
-| `strpos(str1,str2)`         | returns position of `str2` in `str1`     | `di strpos("STRINGS","R")`               | `3`               |
-| `substr(str,n1,n2)`         | extracts characters n1 through n2 from `str`; n1<0 starts from right | `di substr("IN STATA",1,2)`<br /> `di substr("IN STATA",-5,5)` | `IN`<br />`STATA` |
-| `subinstr(str,sub1,sub2,.)` | replaces all instances of `str1` with `str2` in `str` | `di subinstr("STATA","T","7")`           | `S7A7A`           |
-| `regexm(str,re)`            | evaluates whether `str` matches regular expression `regex`; results in a 1/0 output meaning TRUE/FALSE | `di regexm("ARE OKAY","A")`              | `1`               |
-| `regexr(str1, re, str2)`    | replaces the first substring of `str1` that matches reg. exp. `re` with `str2` | `di regexr("STATA","T","7")`             | `S7ATA`           |
-
-Regular expression match, or `regexm`, is a powerful string tool which can be used in an evaluation as it outputs a TRUE/FALSE result as 1/0, respectively. For example, say I had a dataset where the `travel_abroad` variable was completed as an open source field, and people entering data had input: "UNK", "UNKNOWN", "unk", "unknwn" and "Unknown" when they didn't know.
-
-```stata 
-*i	this will capture all the variations that contain "unk" anywhere, ignoring case
-	replace travel_abroad="Unknown" if lower(regexm(travel_abroad,"unk"))
-```
-
-Regular expressions are more powerful then regular string functions. They have added function which allow you to search if a string starts, or ends with a set of characters, or to use wildcards. [For more detail on regular expressions, and how to use *all* the wildcards, click here.](https://www.stata.com/support/faqs/data-management/regular-expressions/)
-
-```stata
-	gen x=1 if regexm(forename,"^A")	// if the forename variable starts with "A"
-	gen y=1 if regexm(surname,"A$")		// if the surname ends with "A"
-	
-*i	just say we have Steve, Stephen, Stefen, and Steven in our dataset but we want them all.
-	replace forename=upper(forename)
-	gen steve=1 if regexm(forename,"STE*E")
-```
-
-Note the key difference in results between regexr and subinstr. This one is important. String functions can be combined as well. Remember, order and brackets matter. Paste these into Stata to see:
-
-```stata
-	di regexr("ALEX WANTS YOU TO LEARN STATA STRING FUNCTIONS","A","4")
-	di subinstr("SERIOUSLY. LEARN STATA STRING FUNCTIONS","S","5",.)
-
-	di "`c(username)'"
-	di proper("hello "+substr("`c(username)'",1,strpos("`c(username)'",".")))
-```
-
 
 
 ### Duplicates
