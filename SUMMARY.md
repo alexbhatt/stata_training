@@ -1,4 +1,4 @@
-# Summary
+# Sections
 
 * [Before you start](README.md)
 
