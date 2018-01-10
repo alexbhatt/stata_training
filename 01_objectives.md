@@ -1,4 +1,4 @@
-## Objectives
+# Objectives
 
 Participants should have a basic working knowledge of how to use the Stata program prior to starting this training. This includes general program use and how to create do files.
 
