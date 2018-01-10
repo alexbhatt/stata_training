@@ -191,8 +191,8 @@ Looping is a way of repeating code over something using macros. `foreach` loop o
 See how the local macro has been called within the loop. Run the following loop code in your command line or do file to get an idea of the output.
 
 ```stata
-	help foreach 							// looping over strings/variables/list
-	help forval 							// looping over numbers, read about ranges
+	help foreach 					// looping over strings/variables/list
+	help forval 					// looping over numbers, read about ranges
 	
 *i	_all = stata code for all variables in dataset
 
