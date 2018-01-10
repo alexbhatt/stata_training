@@ -1,21 +1,6 @@
 
 # Stata basics
 
-### Before you start
-
-File structure on your computer is important. By having a good folder structure, you will be able to find files easier, and your code will be cleaner to read for both yourself and others. It also helps to differentiate about where you data is coming from. For most projects, I recommend having a project directory with the following subfolders as a minimum:
-
-**Table 1. Minimum folder structure when working with data and code.**
-
-| Folder            | Subfolder | Contents                                 |
-| :---------------- | :-------- | :--------------------------------------- |
-| project directory |           | this is the main folder                  |
-|                   | \data     | data files (`.dta`, original import data `.csv` `.xlsx`) |
-|                   | \exports  | data you export from Stata               |
-|                   | \code     | `.do` files                              |
-
-
-
 ### Coding best practice
 
 **Always code in a do file.** Do files enable you to save and script a logical flow of commands to run on your data. This is how you will ensure reproducibility in your work, for yourself and others. Within a do file, you can leave comments. These will make your life easier.
