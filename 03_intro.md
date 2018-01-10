@@ -29,7 +29,7 @@ This practice dataset is simulated and does not contain any actual patient or la
 
 These simulated data contain routine laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017. There is only one record per infection episode; however, an individual can have multiple infection episodes over time. Each infection episode is considered a new infection.
 
-**Table 5. The core dataset with variables names and contents.**
+**Table 4. The core dataset with variables names and contents.**
 
 | Variable        | Contents                                 |
 | :-------------- | :--------------------------------------- |
