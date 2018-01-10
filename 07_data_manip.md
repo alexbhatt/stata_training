@@ -1,5 +1,4 @@
-
-## Data manipulation
+# Data manipulation
 
 Data manipulation is when you change the structure of your dataset. Depending on what your analysis requires, you may need to summarise your data, append or merge other datasets, or reshape your data. Here we will do all of these. Remember, Stata does not have an undo function, this is why we saved our base dataset, a deduplicated, cleaned line list.
 
