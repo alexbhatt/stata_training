@@ -978,3 +978,8 @@ This one requires everything we've talked about above. You'll need to `collapse`
 >**TASK 27: compare your final results against the file in `outputs\summary.xlsx`**
 
 Compare your final `xlsx` file to the reference file. You may have slightly different numbers based on how you did your deduplication and patientID, that's okay. Compare your methods against your colleagues or the reference file. It is important you document everything in your do file, this include extensive comments on why you have made certain decisions.
+
+# Achievement Unlocked: Level 2 Data Wizard
+Congratulations. You can completed the training and can now clean, manage and manipulate data in Stata.
+
+Please take a few minutes to [complete the evaluation/feedback for this training](https://surveys.phe.org.uk/stata_training_eval). This will help me improve this training module in the future.
