@@ -1,5 +1,5 @@
 
-## Stata basics
+# Stata basics
 
 ### Before you start
 
