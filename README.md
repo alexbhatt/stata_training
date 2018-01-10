@@ -7,7 +7,7 @@ For each task, you’ll be provided with the key commands you'll want to use in 
 Importantly, the code/commands I've suggested are not the only way to solve each problem, just one way.  
 Always remember to write lots of comments. Explain what and why you've done something.
 
-## Before you start
+### Before you start
 
 File structure on your computer is important. By having a good folder structure, you will be able to find files easier, and your code will be cleaner to read for both yourself and others. It also helps to differentiate about where you data is coming from. For most projects, I recommend having a project directory with the following subfolders as a minimum:
 
@@ -22,13 +22,15 @@ Download the [training files project directory](https://github.com/alexbhatt/sta
 
 This training requires Stata v12.0 or higher
 
-## The dataset
+### The dataset
 
 These data contain routine laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017.   
 There is only one record per infection episode, however, an individual can have multiple infection episodes over time.  
 This practice dataset does not contain any actual patient or laboratory data.
 
+#### Contact info
 Author:     Alex Bhattacharya  
 Email:      alex.bhattacharya@phe.gov.uk  
 Updated:    10 Jan 2018
+Version:    3.0
 
