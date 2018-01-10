@@ -1,3 +1,16 @@
+
+# Import Data
+
+>**TASK 1: set the working directory to your project folder**
+
+```stata
+	help cd
+```
+
+This should always be in the first set of commands within your do file. It is how you will navigate around the different files that you will be accessing or creating. It also means that if someone wants to use your code, and they have the files, they only have to change the directory here, and not every time a file is referenced within the code.
+
+In Stata, you can only have one dataset in memory at a time. Before a new dataset can be loaded in, you will need to clear the memory. This can be done with either the first using the command `clear` or using the `,clear` option when loading a new dataset.
+
 ### Importing spreadsheets
 
 Stata imports excel files [`.xls`/`.xlsx`] differently than text delimited files [`.csv`/`.txt`]. Read about the different syntax needed. Always spend a little time looking at your data, particularly when it's fragmented like this. How you look at your data will be a personal preference, however, there are several tools within Stata available to you to aid this exploration. 
@@ -7,7 +20,6 @@ When you explore your data:
 * what are the names of the variables 
 * are they of the same type (string vs numeric) 
 * sometimes it can be helpful to import your data as all string as Stata and Excel sometimes play tricks with dates.
-  ​
 
 
 
