@@ -1,7 +1,7 @@
 
 # Stata basics
 
-### Before you start
+### [Before you start](#bfs)
 
 File structure on your computer is important. By having a good folder structure, you will be able to find files easier, and your code will be cleaner to read for both yourself and others. It also helps to differentiate about where you data is coming from. For most projects, I recommend having a project directory with the following subfolders as a minimum:
 
