@@ -99,7 +99,7 @@ Remember, that unless you're putting a variable name in the `str` position for t
 
 
 
-**Table 6. String functions and regular expressions in Stata.**
+**Table 5. String functions and regular expressions in Stata.**
 
 | **Command**                 | **What does it do**                      | Example                                  | Result            |
 | :-------------------------- | :--------------------------------------- | :--------------------------------------- | :---------------- |
