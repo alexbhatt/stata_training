@@ -59,7 +59,7 @@ You can perform manipulations according to these numbers. Importantly, these num
 
 
 
-**Table 7. Overview of index numbers within `bysort`.**
+**Table 6. Overview of index numbers within `bysort`.**
 
 | index number | which observation during the `bysort` does the index number relate to? |
 | :----------- | :--------------------------------------- |
@@ -89,7 +89,7 @@ You can also use `_n` and `_N` without the `[]`. In this case, `_n` refers to th
 	bysort id (specimen_date): gen days2=specimen_date-specimen_date[_n-1]
 ```
 
-**Table 8. Results after `bysort id (specimen_date)` for`count `,`index`, `days1` and `days2`.**
+**Table 7. Results after `bysort id (specimen_date)` for`count `,`index`, `days1` and `days2`.**
 
 | id   | specimen_date | count | index | days1 | days2 |
 | :--- | :------------ | :---- | :---- | :---- | :---- |
@@ -117,7 +117,7 @@ For example, just say we had 2 variables, for forename and surname and we wanted
 	gen id=_n 
 ```
 
-**Table 9a. Results before `bysort`.**
+**Table 8a. Results before `bysort`.**
 
 | forename | surname   | id   |
 | :------- | :-------- | :--- |
@@ -139,7 +139,7 @@ For example, just say we had 2 variables, for forename and surname and we wanted
 	bysort forname surname (id): replace id=id[1]
 ```
 
-**Table 9b. Comparison of results after `bysort`.**
+**Table 8b. Comparison of results after `bysort`.**
 
 | forename | surname   | id   |
 | :------- | :-------- | :--- |
@@ -161,7 +161,7 @@ Compare Table 7a and 7b. Note that everyone that the `id` value was replaced wit
 Lets try that again, however, this time, consider what would happen if some of the values were missing, as shown in Table 8a. We can avoid inappropriate groupings by using the `if` command after our `replace`. This is a more realistic scenario, as it is rare that you will have a fully 100% complete dataset. This is also why in practice, you will often use a sequential set of parameters to group records when you have missing data.
 
 
-**Table 10a. Results with missing data.**
+**Table 9a. Results with missing data.**
 
 | forename | surname   | id   |
 | :------- | :-------- | :--- |
@@ -184,7 +184,7 @@ Lets try that again, however, this time, consider what would happen if some of t
 ```
 
 
-**Table 10b. Results after `bysort `when there is missing data.**
+**Table 9b. Results after `bysort `when there is missing data.**
 
 | forename | surname   | id   |
 | :------- | :-------- | :--- |
@@ -216,7 +216,7 @@ Just say a patient had two records and you wished to deduplicate and retain the 
 
 Once you understand `bysort` and index numbers as how their used in this section, you can use it as an alternative method to flag duplicate records for removal. Helpfully, `bysort` combined with `[_n-1]` or `[_n+1]` will allow you to capture information from an observation before or after, respectively. This is can often be helpful before deduplicating.
 
-**Table 11a. There is missing information in the primary record which has the outcome (cholera). Note that the index number `[_n]` value is not actually shown in Stata**
+**Table 10a. There is missing information in the primary record which has the outcome (cholera). Note that the index number `[_n]` value is not actually shown in Stata**
 
 | [_n] | id   | forename | surname | sex  | specimen_date | cholera |
 | :--- | :--- | :------- | :------ | :--- | :------------ | :------ |
@@ -230,7 +230,7 @@ Once you understand `bysort` and index numbers as how their used in this section
 	bys id specimen_date: gen _drop=1 if _n!=1
 ```
 
-**Table 11b. Using the `bysort` commands above replace the missing values in `[1]` with the information from the next (`[2]`)**
+**Table 10b. Using the `bysort` commands above replace the missing values in `[1]` with the information from the next (`[2]`)**
 
 | _n   | id   | forename | surname | sex  | specimen_date | cholera | _drop |
 | :--- | :--- | :------- | :------ | :--- | :------------ | :------ | :---- |
