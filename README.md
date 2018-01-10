@@ -17,13 +17,13 @@ File structure on your computer is important. By having a good folder structure,
 |  | \exports | data you export from Stata |
 |  | \code | `.do` files |
 
-Download the [training files project directory](https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip) and unzip the folders on your computer. 
+Download the [training files project directory](https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip) and unzip the folder on your computer. 
 
 This training requires Stata v12.0 or higher.
 
 ### The dataset
 
-These data contain simulated routine laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017. There is only one record per infection episode, however, an individual can have multiple infection episodes over time.
+These data contain simulated laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017. There is only one record per infection episode, however, an individual can have multiple infection episodes over time.
 
 #### Contact info
 
