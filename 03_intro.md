@@ -48,17 +48,3 @@ These simulated data contain routine laboratory surveillance data of incident ca
 The required files for this training are already in the above format. Download the project directory here:
 
 Extract the contents of the zip file to your chosen project directory. The project directory is wherever you choose to save the unzipped folder. Open the PDF manual and the do file `code\StataTraining_dCMM.do` in Stata (v12.0 or higher required). Compete your code in the provided template do file.
-
-
-
-## Import Data
-
->**TASK 1: set the working directory to your project folder**
-
-```stata
-	help cd
-```
-
-This should always be in the first set of commands within your do file. It is how you will navigate around the different files that you will be accessing or creating. It also means that if someone wants to use your code, and they have the files, they only have to change the directory here, and not every time a file is referenced within the code.
-
-In Stata, you can only have one dataset in memory at a time. Before a new dataset can be loaded in, you will need to clear the memory. This can be done with either the first using the command `clear` or using the `,clear` option when loading a new dataset.
