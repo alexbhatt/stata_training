@@ -1,5 +1,5 @@
 
-## Data management
+# Data management
 
 We've cleaned the dataset. Now let's modify it so it has what we need for further analysis. During this stage, we are going to create extra variables using the existing data which will be helpful for further analysis. 
 
