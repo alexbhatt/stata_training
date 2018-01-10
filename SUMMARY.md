@@ -15,9 +15,9 @@
 
 * [Data Cleaning](05_data_clean.md)
   * [What is data cleaning](05_data_clean.md#what-is-data-cleaning)
+  * [String functions](05_data_clean.md#string-functions-and-regular-expressions)
   * [Generate and Replace](05_data_clean.md#generate-and-replace)
   * [If-statements](05_data_clean.md#if-statements)
-  * [String functions](05_data_clean.md#string-functions-and-regular-expressions)
   * [Duplicates](5_data_clean.md#duplicates)
  
 * [Data Management](06_data_mgmt.md)
