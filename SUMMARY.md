@@ -27,7 +27,7 @@
 * [Data Manipulation](07_data_manip.md)
   * [Long versus wide data](07_data_manip.md#long-versus-wide-data-reshape)
   * [Summary tables](07_data_manip.md#creating-summary-datasets-collapse)
-  * [Joining datasets](07_data_manip.md#joining-datasets--merge)
+  * [Joining datasets](07_data_manip.md#joining-datasets-merge)
   * [Macros](07_data_manip.md#macros)
   * [Looping](07_data_manip.md#looping)
 
