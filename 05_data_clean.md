@@ -1,4 +1,4 @@
-## Data cleaning
+# Data cleaning
 
 ### What is data cleaning
 
