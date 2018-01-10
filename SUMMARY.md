@@ -1,11 +1,10 @@
 # Summary
 
-* [Stata Training](README.md)
+* [Before you start](README.md)
 
 * [Objectives](01_objectives.md)
 
 * [Stata Basics](02_stata_basics.md)
-  * [Before you start](02_stata_basics.md#before-you-start)
   * [Coding best practice](02_stata_basics.md#coding-best-practice)
   * [Stata data types](02_stata_basics.md#stata-data-types)
   * [Stata commands](02_stata_basics.md#stata-commands)
