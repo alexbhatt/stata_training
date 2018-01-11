@@ -32,4 +32,4 @@
   * [Looping](training_manual.md#looping)
 
 * [**End**](training_manual.md#achievement-unlocked-level-2-data-wizard)
-  * [Evaluation survey/Certificate](https://surveys.phe.org.uk/stata_training_eval)
+  * [Evaluation survey/Certificate](https://surveys.phe.org.uk/stata_training_eval){:target="_blank"}
