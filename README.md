@@ -25,6 +25,9 @@ This training requires Stata v12.0 or higher.
 
 These data contain simulated laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017. There is only one record per infection episode, however, an individual can have multiple infection episodes over time.
 
+#### Evaluation and Certificate of Completion
+Upon completing the course, you can download a Certificate of Completion if you complete a short (1 page) evaluation survey. The results will be used to improve the course. The evaluation/certificate link is found at the bottom of the training manual.
+
 #### Contact info
 
 Author:     Alex Bhattacharya  
