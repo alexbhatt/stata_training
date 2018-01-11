@@ -982,4 +982,4 @@ Compare your final `xlsx` file to the reference file. You may have slightly diff
 # Achievement Unlocked: Level 2 Data Wizard
 Congratulations. You can completed the training and can now clean, manage and manipulate data in Stata.
 
-Please take a few minutes to [complete the evaluation/feedback for this training](https://surveys.phe.org.uk/stata_training_eval). This will help me improve this training module in the future.
+To help improve this training module and for a Certificate of Completion, please take a few minutes to **[complete the evaluation/feedback for this training](https://surveys.phe.org.uk/stata_training_eval){:target="_blank"}**. 
