@@ -251,7 +251,7 @@ This is when you modify your data by changing the original values within the dat
 
 The purpose of data cleaning is to make our data as consistent as possible in preparation for analysis. This may include activities such as: formatting or recoding data, removing duplicate entries and accounting for missing data. This may also be referred to as having "tidy" data. Simply put, a clean dataset is easier to work with and a tidy dataset is easier to manage. Combined, having a a clean and tidy dataset will result in fewer mistakes in your code and therefore, your results.
 
-In a [clean/tidy dataset](https://en.wikipedia.org/wiki/Tidy_data):
+In a <a href="https://en.wikipedia.org/wiki/Tidy_data" target="_blank">clean/tidy dataset</a>:
 
 * each variable has its own column
 * each observation of that variable is in a different row (this is long format data; we'll get to this later)
@@ -294,7 +294,7 @@ Regular expression match, or `regexm`, is a powerful string tool which can be us
 	replace travel_abroad="Unknown" if lower(regexm(travel_abroad,"unk"))
 ```
 
-Regular expressions are more powerful then regular string functions. They have added function which allow you to search if a string starts, or ends with a set of characters, or to use wildcards. [For more detail on regular expressions, and how to use *all* the wildcards, click here.](https://www.stata.com/support/faqs/data-management/regular-expressions/)
+Regular expressions are more powerful then regular string functions. They have added function which allow you to search if a string starts, or ends with a set of characters, or to use wildcards. <a href="https://www.stata.com/support/faqs/data-management/regular-expressions/" target="_blank">For more detail on regular expressions, and how to use *all* the wildcards, click here.</a>
 
 ```stata
 	gen x=1 if regexm(forename,"^A")	// if the forename variable starts with "A"
