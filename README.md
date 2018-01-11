@@ -17,7 +17,7 @@ File structure on your computer is important. By having a good folder structure,
 |  | \exports | data you export from Stata |
 |  | \code | `.do` files |
 
-Download the [training files project directory](https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip) and unzip the folder on your computer. 
+Download the <a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip" target="_blank">training files project directory</a> and unzip the folder on your computer. 
 
 This training requires Stata v12.0 or higher.
 
