@@ -1,14 +1,14 @@
 # Stata Training: Data Cleaning, Management and Manipulation
 
 ## Intro
-
 This is a self-directed training to teach you how to manipulate and clean data in Stata like a data wizard. Your own level of experience prior to starting will determine how long this training will take.  
 For each task, you’ll be provided with the key Stata commands you'll want to use for each task. Importantly, the code/commands I've suggested are not the only way to solve each problem, just one way.  
 Always remember to write lots of comments within your do file. Explain what and why you've done something.
 
 ### Before you start
+This training requires Stata v12.0 or higher.
 
-File structure on your computer is important. By having a good folder structure, you will be able to find files easier, and your code will be cleaner to read for both yourself and others. It also helps to differentiate about where you data is coming from. For most projects, I recommend having a project directory with the following subfolders as a minimum:
+File structure on your computer is important. By having a good folder structure, you will be able to find files easier, and your code will be cleaner and easier. Also, it helps to differentiate where you data is coming from (import versus export data). For most projects, I recommend having a project directory with the following subfolders as a minimum:
 
 | Folder | Subfolder | Contents |
 | :--- | :--- | :--- |
@@ -17,21 +17,26 @@ File structure on your computer is important. By having a good folder structure,
 |  | \exports | data you export from Stata |
 |  | \code | `.do` files |
 
+
+## Training materials
 Download the <a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip" target="_blank">training files project directory</a> and unzip the folder on your computer. 
 
-This training requires Stata v12.0 or higher.
-
 ### The dataset
+These data contain simulated laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017. There is only one record per infection episode, however, an individual can have multiple infection episodes over time. The raw data can be found in the `\data` subfolder in the project directory (<a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip" target="_blank">stata_training_materials.zip</a>)
 
-These data contain simulated laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017. There is only one record per infection episode, however, an individual can have multiple infection episodes over time.
+### The do file.
+Within the `\code` subfolder, you will find a template do file which contains some of the hints found within the manual, and all the tasks. Complete your code in this do file. 
 
-#### Evaluation and Certificate of Completion
-Upon completing the course, you can download a Certificate of Completion if you complete a short (1 page) evaluation survey. The results will be used to improve the course. The evaluation/certificate link is found at the bottom of the training manual.
+### The answers.
+In the `\exports` subfolder, you will find a file called `summary.xlsx`. This contains the final result outputs. If you have completed the training correctly, your results will be similar to the ones found in the `summary.xlsx`. However, your result values may be slightly different (+/- 10%). That's okay, it will be due to how you have chosen to do a few steps. You do not get a copy of the code. Sorry, no copy/paste for you. This training will enable you to independently create your own multi-stage do files. 
 
-#### Contact info
+### Evaluation and Certificate of Completion
+Upon completing the course, you can download a Certificate of Completion if you complete a quick evaluation survey. The results of which will be used to improve the course. The evaluation/certificate link is found at the bottom of the training manual.
 
-Author:     Alex Bhattacharya  
-Email:       alex.bhattacharya@phe.gov.uk  
-Updated:  10 Jan 2018  
-Version:    3.0
+
+## Contact info
+Author: Alex Bhattacharya  
+Email: alex.bhattacharya@phe.gov.uk  
+Updated: 10 Jan 2018  
+Version: 3.0
 
