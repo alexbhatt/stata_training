@@ -24,11 +24,13 @@ Download the <a href="https://github.com/alexbhatt/stata_training/blob/master/st
 ### The dataset
 These data contain simulated laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017. There is only one record per infection episode, however, an individual can have multiple infection episodes over time. The raw data can be found in the `\data` subfolder in the project directory (<a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip" target="_blank">stata_training_materials.zip</a>)
 
-### The do file.
+### The do file
 Within the `\code` subfolder, you will find a template do file which contains some of the hints found within the manual, and all the tasks. Complete your code in this do file. 
 
-### The answers.
-In the `\exports` subfolder, you will find a file called `summary.xlsx`. This contains the final result outputs. If you have completed the training correctly, your results will be similar to the ones found in the `summary.xlsx`. However, your result values may be slightly different (+/- 10%). That's okay, it will be due to how you have chosen to do a few steps. You do not get a copy of the code. Sorry, no copy/paste for you. This training will enable you to independently create your own multi-stage do files. 
+### The answers
+In the `\exports` subfolder, you will find a file called `summary.xlsx`. This contains the final result outputs. If you have completed the training correctly, your results will be similar to the ones found in the `summary.xlsx`. However, your result values may be slightly different (+/- 10%). That's okay, it will be due to how you have chosen to do a few steps. 
+
+You do not get a copy of the code. Sorry, no copy/paste for you. This training will enable you to independently create your own multi-stage do files. 
 
 ### Evaluation and Certificate of Completion
 Upon completing the course, you can download a Certificate of Completion if you complete a quick evaluation survey. The results of which will be used to improve the course. The evaluation/certificate link is found at the bottom of the training manual.
@@ -37,6 +39,5 @@ Upon completing the course, you can download a Certificate of Completion if you 
 ## Contact info
 Author: Alex Bhattacharya  
 Email: alex.bhattacharya@phe.gov.uk  
-Updated: 10 Jan 2018  
+Updated: 11 Jan 2018  
 Version: 3.0
-
