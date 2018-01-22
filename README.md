@@ -19,10 +19,10 @@ File structure on your computer is important. By having a good folder structure,
 
 
 ## Training materials
-Download the <a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip" target="_blank">training files project directory</a> and unzip the folder on your computer. 
+Download the <a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip?raw=true" target="_blank">training files project directory</a> and unzip the folder on your computer. 
 
 ### The dataset
-These data contain simulated laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017. There is only one record per infection episode, however, an individual can have multiple infection episodes over time. The raw data can be found in the `\data` subfolder in the project directory (<a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip" target="_blank">stata_training_materials.zip</a>)
+These data contain simulated laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017. There is only one record per infection episode, however, an individual can have multiple infection episodes over time. The raw data can be found in the `\data` subfolder in the project directory (<a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip?raw=true" target="_blank">stata_training_materials.zip</a>)
 
 ### The do file
 Within the `\code` subfolder, you will find a template do file which contains some of the hints found within the manual, and all the tasks. Complete your code in this do file. 
