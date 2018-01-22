@@ -51,11 +51,17 @@ Comments work in Stata by either putting a `*` at the beginning of the line, or 
 ```
 
 * make your code as simple and efficient as possible, you'll always learn better ways in the future, thats okay, but never make your code more complicated than it needs to be
-* save your code often, if you've made major changes in methods, save a new version, never delete old methodology/completed code, you may have been right the first time
+* <a href="https://github.com/" target="_blank">use a system to help with saving and version control</a>, if your code is sensitive and cannot be shared outside the organisation check if your organisation has an internal git page (<a href="https://gitlab.phe.gov.uk/users/sign_in" target="_blank">PHE does</a>)
+	* this will allow better control of versions in your code, including a history, and better facilitates sharing of code
+	* never delete old methodology/completed code, you may have been right the first time, another reason version control is helpful
 * save your working files (`.dta`) at each stage, *eg. raw import, cleaned, ready for analysis*
 * if your file has become too long to manage, perhaps its better to split it over two or more do files
-  * this is often very helpful when its a complicated process and you want to focus on one stage per file or your're troubleshooting why the process isn't working as expected
+  * this is often very helpful when its a complicated process and you want to focus on one stage per file or are troubleshooting why a process isn't working as expected
     * *remember*: you can run a do file as a command (within another do file)
+    
+It's not just me recommending this. I (and others) say this for your own good.
+* <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745" target="_blank">Best practices for scientific computing</a>
+* <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510" target="_blank">Good enough practices in scientific computing</a> 
 
 
 
@@ -982,4 +988,4 @@ Compare your final `xlsx` file to the reference file. You may have slightly diff
 # Achievement Unlocked: Level 2 Data Wizard
 Congratulations. You can completed the training and can now clean, manage and manipulate data in Stata.
 
-To help improve this training module and for a Certificate of Completion, please take a few minutes to **[complete the evaluation/feedback for this training](https://surveys.phe.org.uk/stata_training_eval){:target="_blank"}**. 
+To help improve this training module and for a Certificate of Completion, please take a few minutes to <a href="	https://surveys.phe.org.uk/stata_training_eval" target="_blank">**complete the evaluation/feedback for this training**.</ a>
