@@ -19,7 +19,7 @@ File structure on your computer is important. By having a good folder structure,
 
 
 ## Training materials
-Download the <a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip?raw=true" target="_blank">training files project directory</a> and unzip the folder on your computer. 
+<a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip?raw=true" target="_blank">Click here to download the training files project directory</a>. Unzip the contents into a project folder on your computer. 
 
 ### The dataset
 These data contain simulated laboratory surveillance data of incident cases of bacterial bloodstream infections in England from 2015 to 2017. There is only one record per infection episode, however, an individual can have multiple infection episodes over time. The raw data can be found in the `\data` subfolder in the project directory (<a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip?raw=true" target="_blank">stata_training_materials.zip</a>)
