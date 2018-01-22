@@ -18,10 +18,6 @@ File structure on your computer is important. By having a good folder structure,
 |  | \code | `.do` files |
 
 
-## GitBook comments
-You should be viewing this training <a href="https://alexbhatt.gitbooks.io/stata-training/">via GitBook</a>. If you are, you will see a `[+]` in a box to the right of the text as you see in the image below. Clicking the `[+]` icon will toggle the comments on or off. You can start a new discussion or respond to existing comments from your colleagues. This feature can be used to ask questions, or work together to solve problems. 
-You will require an account to leave comments or join the discussion. ![Comments box to the right of text, click the + to toggle on/off](/assets/gitbook_comment.png)  
-
 ## Training materials
 Download the <a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip" target="_blank">training files project directory</a> and unzip the folder on your computer. 
 
@@ -38,6 +34,10 @@ You do not get a copy of the code. Sorry, no copy/paste for you. This training w
 
 ### Evaluation and Certificate of Completion
 Upon completing the course, you can download a Certificate of Completion if you complete a quick evaluation survey. The results of which will be used to improve the course. The evaluation/certificate link is found at the bottom of the training manual.
+
+## GitBook comments
+You should be viewing this training <a href="https://alexbhatt.gitbooks.io/stata-training/">via GitBook</a>. If you are, you will see a `[+]` in a box to the right of the text as you see in the image below. Clicking the `[+]` icon will toggle the comments on or off. You can start a new discussion or respond to existing comments from your colleagues. This feature can be used to ask questions, or work together to solve problems. 
+To use the comments you will need to sign in or register for a free account.  ![Comments box to the right of text, click the + to toggle on/off](/assets/gitbook_comment.png)  
 
 
 ## Contact info
