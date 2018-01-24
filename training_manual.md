@@ -127,11 +127,33 @@ Operators are the commands which you can use to evaluate expressions. Like math,
 | `!=`                            | Not equal to                             | `gen x=1 if 2!=3`                       | assess if left side does not equal right side |
 | `>=` `>` `<=` `<`               | Greater than/ <br />less than <br />(or equal to) | `gen x=1 if 2<=3`                       | as it sounds<br />only works with numbers |
 | `&`                             | AND                                      | `gen x=1 if y==2 & z==3`                | to evaluate 2+ things, BOTH side of `&` must be TRUE |
-| `¦` (solid line pipe character) | OR                                       | `gen x=1 if y==2 ¦ z==2`                | to evaluate 2+ things, only ONE side of `¦` must be TRUE |
+| `¦` (solid line pipe character)* | OR                                       | `gen x=1 if y==2 ¦ z==2`                | to evaluate 2+ things, only ONE side of `¦` must be TRUE |
 | `+` `-` `*` `/` `^`             | Add, subtract, <br />multiply, divide, exponent | `gen x=1*3/3+2^2-4`                     | math, order is important<br />numbers only |
 | `()`                            | Brackets                                 | `gen x=1 if y==2 ¦ (2^2==4 & a=="red")` | everything in the bracket must <br />be considered, this allows you to group expressions |
 
-AND/OR are different from equals or not equals. These rely on TRUE/FALSE outcomes. For example, `2+2==4` and `2+2!=5` are both TRUE. Conversely, `5<4` is FALSE.
+\* `|` *is used in Stata as the OR operator*
+
+
+#### Expressions
+An expression is something you want to evaluate and has a TRUE/FALSE outcome. Operators which allow you to assess two things using `== != >= > <= <` are required for expressions. Expressions can involve both strings and numbers and are often used in if-statements. These can be as simple as `1+1==2` or `length("ALEX")==4`, however they can become as complex as you need.
+
+As illustrated in the table above, AND/OR differ from equals or not equals. For example, `2+2==4 & 2+2!=5` both sides of the `&` are TRUE, and therefore the full expression is TRUE. Conversely, `5<4` is FALSE. Importantly, `2+2==4 | 5<4` is also TRUE, because when using OR, if one side of the `|` is TRUE, then the entire expression evaluates as TRUE.
+
+If evaluating an expression in Stata, a TRUE will be output as `1` and FALSE as `0`. 
+
+```stata
+# example expression; copy into Stata to see outputs
+	di 1+1==2
+	di 1+1==3
+	
+# complex expresssions; is each one TRUE or FALSE
+	di 2+2==4 & 2+2!=5
+	di 2+2==4 | 5<4
+	di 2+2==4 & 5<4 | 2+2!=5
+	di 2+2==4 & 2+2==5 | 5<4 & 1+1==3
+	di 2+2==4 | 2+2==5 | 5<4 | 1+1==3
+	di 1+1==2 & (2+2==4 & (1+1==3 | 2+2!=5))
+```
 
 Don't worry if you don't fully understand all of this yet. You will.
 
