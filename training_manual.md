@@ -127,7 +127,7 @@ Operators are the commands which you can use to evaluate expressions. Like math,
 | `!=`                            | Not equal to                             | `gen x=1 if 2!=3`                       | assess if left side does not equal right side |
 | `>=` `>` `<=` `<`               | Greater than/ <br />less than <br />(or equal to) | `gen x=1 if 2<=3`                       | as it sounds<br />only works with numbers |
 | `&`                             | AND                                      | `gen x=1 if y==2 & z==3`                | to evaluate 2+ things, BOTH side of `&` must be TRUE |
-| `¦` (solid line pipe character) | OR                                       | `gen x=1 if y==2 ¦ z==2`                | to evaluate 2+ things, only ONE side of ¦ must be TRUE |
+| \| (solid line pipe character) | OR                                       | `gen x=1 if y==2` \| `z==2`                | to evaluate 2+ things, only ONE side of \| must be TRUE |
 | `+` `-` `*` `/` `^`             | Add, subtract, <br />multiply, divide, exponent | `gen x=1*3/3+2^2-4`                     | math, order is important<br />numbers only |
 | `()`                            | Brackets                                 | `gen x=1 if y==2 ¦ (2^2==4 & a=="red")` | everything in the bracket must <br />be considered, this allows you to group expressions |
 
