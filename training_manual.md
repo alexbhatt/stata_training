@@ -207,11 +207,11 @@ As illustrated in the table above, AND/OR differ from equals or not equals. For 
 If evaluating an expression in Stata, a TRUE will be output as `1` and FALSE as `0`. 
 
 ```stata
-# example expression; copy into Stata to see outputs
+* example expression; copy into Stata to see outputs
 	di 1+1==2
 	di 1+1==3
 	
-# complex expresssions; is each one TRUE or FALSE
+* complex expresssions; is each one TRUE or FALSE
 	di 2+2==4 & 2+2!=5
 	di 2+2==4 | 5<4
 	di 2+2==4 & 5<4 | 2+2!=5
