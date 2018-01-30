@@ -23,142 +23,6 @@ By the end of this training, participants will:
 
 
 
-# Stata basics
-
-### Coding best practice
-
-**Always code in a do file.** Do files enable you to save and script a logical flow of commands to run on your data. This is how you will ensure reproducibility in your work, for yourself and others. Within a do file, you can leave comments. These will make your life easier.
-
-Comments work in Stata by either putting a `*` at the beginning of the line, or `//` after code, see the example below. Alternatively, to comment a block of code over several lines use `/* */`, everything between the `*` will be commented. Comments allow you to annotate in your do file, and will not be read as code, even if there is actual code within the comment. This means you can use comments to "silence" code that you're still working on or testing.
-
-* write lots of comments so you remember what and why you've done something
-  * leave a header comment at the top of your file containing the following:
-    * project title
-    * description outlining the overall purpose of the code
-    * your name
-    * date the code was last edited
-    * look at the template file for an example of what to include in your header
-  * within the code itself, leave comments for what you're trying to do, sometimes you'll come back to it with a new improved method
-  * separate out your code into sections, put a comment line to demonstrate that everything in that section relates to the same purpose eg. data import, data cleaning, data management
-* use tabs to indent code, indented code implies that it relates to the code above, this makes code much easier to read; for example: the replace lines are reliant on the results of the gen line
-  * this has no impact on how to code functions, but simply makes your code neater, and means it's easier to read and edit for both you and others
-
-```stata
-*i 	training program based on location
-	gen program="EPIET" // creating a new categorical variable
-		replace program="UK FETP" if country=="ENGLAND"
-		replace program="PAE" if country=="GERMANY"
-```
-
-* make your code as simple and efficient as possible, you'll always learn better ways in the future, thats okay, but never make your code more complicated than it needs to be
-* <a href="https://github.com/" target="_blank">use a system to help with saving and version control</a>, if your code is sensitive and cannot be shared outside the organisation check if your organisation has an internal git page (<a href="https://gitlab.phe.gov.uk/users/sign_in" target="_blank">PHE does</a>)
-	* this will allow better control of versions in your code, including a history, and better facilitates sharing of code
-	* never delete old methodology/completed code, you may have been right the first time, another reason version control is helpful
-* save your working files (`.dta`) at each stage, *eg. raw import, cleaned, ready for analysis*
-* if your file has become too long to manage, perhaps its better to split it over two or more do files
-  * this is often very helpful when its a complicated process and you want to focus on one stage per file or are troubleshooting why a process isn't working as expected
-    * *remember*: you can run a do file as a command (within another do file)
-    
-It's not just me recommending this. I (and others) say this for your own good.
-* <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745" target="_blank">Best practices for scientific computing</a>
-* <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510" target="_blank">Good enough practices in scientific computing</a> 
-
-
-
-
-### Stata Data types
-
-Stata has two data types. String and numeric. The way Stata deals with each is different. 
-
-**Table 1. Differences between numeric and string data in Stata**
-
-|                      | numeric                                  | strings                                  |
-| :------------------- | :--------------------------------------- | :--------------------------------------- |
-| **contains**         | any real number (+ / -)                  | any characters                           |
-| **example value**    | `3.28`                                   | `"ALEX"`                                 |
-| **missing value**    | *full stop*: `.`                         | *blank*:  `""`                           |
-| **functions**        | evaluate magnitude (>= / <=)<br />add, subtract, multiply, divide | string functions and regular expressions |
-| **example function** | `di 3*28`                                | `di substr("ALEX",1,1)`                  |
-
-You cannot combine a string and a numeric variable. Likewise, the missing characters are specific to the data type. Attempting either will result in an error message. You can always convert a number to a string, but you cannot always convert a string to a number. 
-
-Note that all dates, even when they're formatted in Stata format are still numeric. Likewise, you can label number values. This will display a string value instead of the numeric value, but like dates, the actual data is still a number. We'll get to this later.
-
-When working with strings, the string value must be in double quotes `"string goes here"`.  When using the string variable name, it does not require quotes. 
-
-#### Formatting
-
-Stata allows you to format variables and change how to they are presented in the display and outputs. With numeric variables, formatting does not change the true value (including all its decimal points), it simply displays a rounded number. Dates work the same way, you can set your date format to whatever you're comfortable with, it does not change how Stata does calculations with the value.
-
-
-
-
-### Stata commands
-
-As a reference, Stata commands always follow this general format. The commands have four parts:
-
-
-```stata
-	bysort [varlist]: command [if] [, options]
-```
-**Table 2. Stata command parts.**
-
-| Stata code          | What is it for                           |
-| :------------------ | :--------------------------------------- |
-| `bysort [varlist]:` | You are telling the program to run the command, but grouping your data according to the listed variables |
-| `command`           | This is the main command, the functions you will use in Stata; each command has a help file which tells you how to use that specific command |
-| `[if]`              | These allow you to selectively run a command on a subset of data based on the evaluation of certain criteria or an expression |
-| `[,options]`        | Almost every command in Stata has options, which allow you to change how to main command works, this may change the functionality, or simply just display extra information |
-
-To run code in Stata, only the command is required, the other three parts are optional, however you will use them extensively. The help file for every Stata command will tell you exactly how to use that command, including its syntax and if it allows if-statements and what its options are.
-
-
-
-#### Operators
-
-Operators are the commands which you can use to evaluate expressions. Like math, an expression is a line of code which will be evaluated for a result. Remember your order of operations from math, same order applies (Brackets, Exponents, Multiplication/Division,Addition/Subtraction). But, we also have AND and OR. 
-
-**Table 3. Operators in Stata.**
-
-| Stata code                      | Operator                                 | Example                                 | Purpose                                  |
-| :------------------------------ | :--------------------------------------- | :-------------------------------------- | :--------------------------------------- |
-| `=`                             | Assignment                               | `gen x=1`                               | only used when generating a new variable |
-| `==`                            | Equals to                                | `gen x=1 if 2==2`                       | assess if left side equals right side    |
-| `!=`                            | Not equal to                             | `gen x=1 if 2!=3`                       | assess if left side does not equal right side |
-| `>=` `>` `<=` `<`               | Greater than/ <br />less than <br />(or equal to) | `gen x=1 if 2<=3`                       | as it sounds<br />only works with numbers |
-| `&`                             | AND                                      | `gen x=1 if y==2 & z==3`                | to evaluate 2+ things, BOTH side of `&` must be TRUE |
-| `¦` (solid line pipe character)* | OR                                       | `gen x=1 if y==2 ¦ z==2`                | to evaluate 2+ things, only ONE side of `¦` must be TRUE |
-| `+` `-` `*` `/` `^`             | Add, subtract, <br />multiply, divide, exponent | `gen x=1*3/3+2^2-4`                     | math, order is important<br />numbers only |
-| `()`                            | Brackets                                 | `gen x=1 if y==2 ¦ (2^2==4 & a=="red")` | everything in the bracket must <br />be considered, this allows you to group expressions |
-
-\* `|` *is used in Stata as the OR operator*
-
-
-#### Expressions
-An expression is something you want to evaluate and has a TRUE/FALSE outcome. Operators which allow you to assess two things using `== != >= > <= <` are required for expressions. Expressions can involve both strings and numbers and are often used in if-statements. These can be as simple as `1+1==2` or `length("ALEX")==4`, however they can become as complex as you need.
-
-As illustrated in the table above, AND/OR differ from equals or not equals. For example, `2+2==4 & 2+2!=5` both sides of the `&` are TRUE, and therefore the full expression is TRUE. Conversely, `5<4` is FALSE. Importantly, `2+2==4 | 5<4` is also TRUE, because when using OR, if one side of the `|` is TRUE, then the entire expression evaluates as TRUE.
-
-If evaluating an expression in Stata, a TRUE will be output as `1` and FALSE as `0`. 
-
-```stata
-# example expression; copy into Stata to see outputs
-	di 1+1==2
-	di 1+1==3
-	
-# complex expresssions; is each one TRUE or FALSE
-	di 2+2==4 & 2+2!=5
-	di 2+2==4 | 5<4
-	di 2+2==4 & 5<4 | 2+2!=5
-	di 2+2==4 & 2+2==5 | 5<4 & 1+1==3
-	di 2+2==4 | 2+2==5 | 5<4 | 1+1==3
-	di 1+1==2 & (2+2==4 & (1+1==3 | 2+2!=5))
-```
-
-Don't worry if you don't fully understand all of this yet. You will.
-
-
-
 # Introduction
 
 This training will teach you how to clean, manipulate and manage data like a wizard. Importantly, the suggested code/commands are just one way to solve each problem, not the only way, you may find another way which gives the same results, and you prefer. This method will improve your ability to work in Stata autonomously.
@@ -208,10 +72,166 @@ These simulated data contain routine laboratory surveillance data of incident ca
 
 The required files for this training are already in the above format. Download the project directory here:
 
-Extract the contents of the zip file to your chosen project directory. The project directory is wherever you choose to save the unzipped folder. Open the PDF manual and the do file `code\StataTraining_dCMM.do` in Stata (v12.0 or higher required). Compete your code in the provided template do file.
+Extract the contents of the zip file to your chosen project directory. The project directory is wherever you choose to save contents of the unzipped folder. Open the do file `code\StataTraining_dCMM.do` in Stata (v12.0 or higher required). Compete your code in the provided template do file.
+
+
+
+# Stata basics
+
+### Coding best practice
+
+**Always code in a do file.** Do files enable you to save and script a logical flow of commands to run on your data. This is how you will ensure reproducibility in your work, for yourself and others. Within a do file, you can leave comments. These will make your life easier.
+
+Comments work in Stata by either putting a `*` at the beginning of the line, or `//` after code, see the example below. Alternatively, to comment a block of code over several lines use `/* */`, everything between the `*` will be commented. Comments allow you to annotate in your do file, and will not be read as code, even if there is actual code within the comment. This means you can use comments to "silence" code that you're still working on or testing.
+
+* write lots of comments so you remember what and why you've done something
+  * leave a header comment at the top of your file containing the following:
+    * project title
+    * description outlining the overall purpose of the code
+    * your name
+    * date the code was last edited
+    * look at the template file for an example of what to include in your header
+  * within the code itself, leave comments for what you're trying to do, sometimes you'll come back to it with a new improved method
+  * separate out your code into sections, put a comment line to demonstrate that everything in that section relates to the same purpose eg. data import, data cleaning, data management
+* use tabs to indent code, indented code implies that it relates to the code above, this makes code much easier to read; for example: the replace lines are reliant on the results of the gen line
+  * this has no impact on how to code functions, but simply makes your code neater, and means it's easier to read and edit for both you and others
+
+```stata
+*i 	training program based on location
+	gen program="EPIET" // creating a new categorical variable
+		replace program="UK FETP" if country=="ENGLAND"
+		replace program="PAE" if country=="GERMANY"
+```
+
+* make your code as simple and efficient as possible, you'll always learn better ways in the future, thats okay, but never make your code more complicated than it needs to be
+* <a href="https://github.com/" target="_blank">use a system to help with saving and version control</a>, if your code is sensitive and cannot be shared outside the organisation check if your organisation has an internal git page (<a href="https://gitlab.phe.gov.uk/users/sign_in" target="_blank">PHE does</a>)
+  * this will allow better control of versions in your code, including a history, and better facilitates sharing of code
+  * never delete old methodology/completed code, you may have been right the first time, another reason version control is helpful
+* save your working files (`.dta`) at each stage, *eg. raw import, cleaned, ready for analysis*
+* if your file has become too long to manage, perhaps its better to split it over two or more do files
+  * this is often very helpful when its a complicated process and you want to focus on one stage per file or are troubleshooting why a process isn't working as expected
+    * *remember*: you can run a do file as a command (within another do file)
+
+It's not just me recommending this. I (and others) say this for your own good.
+* <a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.1001745" target="_blank">Best practices for scientific computing</a>
+* <a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1005510" target="_blank">Good enough practices in scientific computing</a> 
+
+
+
+
+### Stata Data types
+
+Stata has two data types. String and numeric. The way Stata deals with each is different. 
+
+**Table 1. Differences between numeric and string data in Stata**
+
+|                      | numeric                                  | strings                                  |
+| :------------------- | :--------------------------------------- | :--------------------------------------- |
+| **contains**         | any real number (+ / -)                  | any characters                           |
+| **example value**    | `3.28`                                   | `"ALEX"`                                 |
+| **missing value**    | *full stop*: `.`                         | *blank*:  `""`                           |
+| **functions**        | evaluate magnitude (>= / <=)<br />add, subtract, multiply, divide | string functions and regular expressions |
+| **example function** | `di 3*28`                                | `di substr("ALEX",1,1)`                  |
+
+You cannot combine a string and a numeric variable. Likewise, the missing characters are specific to the data type. Attempting either will result in an error message. You can always convert a number to a string, but you cannot always convert a string to a number. 
+
+Note that all dates, even when they're formatted in Stata format are still numeric. Likewise, you can label number values. This will display a string value instead of the numeric value, but like dates, the actual data is still a number. We'll get to this later.
+
+When working with strings, the string value must be in double quotes `"string goes here"`.  When using the string variable name, it does not require quotes. 
+
+
+```stata
+     +---------------+
+     | year   colour |
+     |---------------|
+  1. | 2017      red |
+  2. | 2016     blue |
+  3. | 2015    green |
+  4. | 2014   yellow |
+     +---------------+
+
+  gen x=year+colour		// you can't add a number and string
+  type mismatch			// this is the error message
+  r(109);
+```
+
+
+
+
+### Stata commands
+
+As a reference, Stata commands always follow this general format. The commands have four parts:
+
+
+```stata
+	bysort [varlist]: command [if] [, options]
+```
+**Table 2. Stata command parts.**
+
+| Stata code          | What is it for                           |
+| :------------------ | :--------------------------------------- |
+| `bysort [varlist]:` | You are telling the program to run the command, but grouping your data according to the listed variables |
+| `command`           | This is the main command, the functions you will use in Stata; each command has a help file which tells you how to use that specific command |
+| `[if]`              | These allow you to selectively run a command on a subset of data based on the evaluation of certain criteria or an expression |
+| `[,options]`        | Almost every command in Stata has options, which allow you to change how to main command works, this may change the functionality, or simply just display extra information |
+
+To run code in Stata, only the command is required, the other three parts are optional, however you will use them extensively. The help file for every Stata command will tell you exactly how to use that command, including its syntax and if it allows if-statements and what its options are.
+
+
+
+#### Operators
+
+Operators are the commands which you can use to evaluate expressions. Like math, an expression is a line of code which will be evaluated for a result. Remember your order of operations from math, same order applies (Brackets, Exponents, Multiplication/Division,Addition/Subtraction). But, we also have AND and OR. 
+
+**Table 3. Operators in Stata.**
+
+| Stata code                       | Operator                                 | Example                                 | Purpose                                  |
+| :------------------------------- | :--------------------------------------- | :-------------------------------------- | :--------------------------------------- |
+| `=`                              | Assignment                               | `gen x=1`                               | only used when generating a new variable |
+| `==`                             | Equals to                                | `gen x=1 if 2==2`                       | assess if left side equals right side    |
+| `!=`                             | Not equal to                             | `gen x=1 if 2!=3`                       | assess if left side does not equal right side |
+| `>=` `>` `<=` `<`                | Greater than/ <br />less than <br />(or equal to) | `gen x=1 if 2<=3`                       | as it sounds<br />only works with numbers |
+| `&`                              | AND                                      | `gen x=1 if y==2 & z==3`                | to evaluate 2+ things, BOTH side of `&` must be TRUE |
+| `¦` (solid line pipe character)* | OR                                       | `gen x=1 if y==2 ¦ z==2`                | to evaluate 2+ things, only ONE side of `¦` must be TRUE |
+| `+` `-` `*` `/` `^`              | Add, subtract, <br />multiply, divide, exponent | `gen x=1*3/3+2^2-4`                     | math, order is important<br />numbers only |
+| `()`                             | Brackets                                 | `gen x=1 if y==2 ¦ (2^2==4 & a=="red")` | everything in the bracket must <br />be considered, this allows you to group expressions |
+
+\* `|` *is used in Stata as the OR operator*
+
+
+#### Expressions
+An expression is something you want to evaluate and has a TRUE/FALSE outcome. Operators which allow you to assess two things using `== != >= > <= <` are required for expressions. Expressions can involve both strings and numbers and are often used in if-statements. These can be as simple as `1+1==2` or `country=="ENGLAND"`, however they can become as complex as you need.
+
+As illustrated in the table above, AND/OR differ from equals or not equals. For example, `2+2==4 & 2+2!=5` both sides of the `&` are TRUE, and therefore the full expression is TRUE. Conversely, `5<4` is FALSE. Importantly, `2+2==4 | 5<4` is also TRUE, because when using OR, if one side of the `|` is TRUE, then the entire expression evaluates as TRUE.
+
+If evaluating an expression in Stata, a TRUE will be output as `1` and FALSE as `0`. 
+
+```stata
+# example expression; copy into Stata to see outputs
+	di 1+1==2
+	di 1+1==3
+	
+# complex expresssions; is each one TRUE or FALSE
+	di 2+2==4 & 2+2!=5
+	di 2+2==4 | 5<4
+	di 2+2==4 & 5<4 | 2+2!=5
+	di 2+2==4 & 2+2==5 | 5<4 & 1+1==3
+	di 2+2==4 | 2+2==5 | 5<4 | 1+1==3
+	di 1+1==2 & (2+2==4 & (1+1==3 | 2+2!=5))
+```
+
+Don't worry if you don't fully understand all of this yet. You will.
+
+
+
+
 
 
 # Import Data
+
+Lets start small. Here we are going to learn how to bring data from spreadsheets into Stata. This is the most common way that you will receive data, and is an essential skill. 
+
+
 
 >**TASK 1: set the working directory to your project folder**
 
@@ -348,7 +368,7 @@ Note the key difference in results between regexr and subinstr. This one is impo
 
 ### Generate and Replace
 
-`gen` and`replace` are the bread and butter of data cleaning in Stata.  Sometimes we want to make a new variable (`gen`) based on the contents of another, other times we want to `replace` the contents of an existing variable. When you're cleaning data, its often better to create a new variable and then modify the new variable instead of the original one, this adds a sense check element to data cleaning. You can always `drop` the "dirty" variable later.
+`gen` and`replace` are the bread and butter of data cleaning in Stata.  Sometimes we want to make a new variable (`gen`) based on the contents of another, other times we want to `replace` the contents of an existing variable. When you're cleaning data, create a new variable and then modify the new variable instead of the original one, this is best practice and adds a sense check element to data cleaning. You can always `drop` the "dirty" variable later.
 
 ```stata
 	help tab	// use this to list out the contents of a variable. read about option missing
@@ -433,7 +453,9 @@ This dataset contains laboratory surveillance data. In some cases a lab may run 
 Never change the original dataset. Seriously. Don't do it. Save your cleaned dataset as a new file. Feel free to make any and all changes to this one. Use the cleaned dataset going forwards. If you ever make a mistake, just fix and rerun your do-file.
 
 
->**TASK 9: save your cleaned dataset**
+
+
+>**TASK 9: save your cleaned dataset as a new file**
 
 
 
@@ -441,7 +463,7 @@ Never change the original dataset. Seriously. Don't do it. Save your cleaned dat
 
 # Data management
 
-We've cleaned the dataset. Now let's modify it so it has what we need for further analysis. During this stage, we are going to create extra variables using the existing data which will be helpful for further analysis. 
+We've cleaned the dataset. Things will get a little more complicated as we're going to use more advanced commands. The key in data management is creating new variables. These variables will contain flags, summary data, or key identifiers which we will use for further modification. A properly managed dataset will be ready to share with others for analysis.
 
 ### Derived variables
 
@@ -511,6 +533,8 @@ You can perform manipulations according to these numbers. Importantly, these num
 You can also use `_n` and `_N` without the `[]`. In this case, `_n` refers to the current index number, and `_N` refers to the maximum number. They can be used in if-statement evaluations. 
 
 ```stata
+*i 	you will be able to run your version of the commands on your dataset, try them.
+
 *i	create a new var count which would have the total number of observations per id
 *i	only label the last observation per id with the count of observations
 
@@ -730,7 +754,7 @@ At this stage you can replace your previous cleaned dataset, or you can create a
 
 # Data manipulation
 
-Data manipulation is when you change the structure of your dataset. Depending on what your analysis requires, you may need to summarise your data, append or merge other datasets, or reshape your data. Here we will do all of these. Remember, Stata does not have an undo function, this is why we saved our base dataset, a deduplicated, cleaned line list.
+Data manipulation is when you change the **structure** of your dataset. Depending on what your analysis requires, you may need to summarise your data, append or merge other datasets, or reshape your data. Here we will do all of these. Remember, Stata does not have an undo function, this is why we saved our base dataset, a deduplicated, cleaned line list.
 
 In this next part, we are going to create a summary table for the number of infections, and calculate the yearly incidence rates per 100,000 population. Then we are going to export our result table to excel. These are the tables seen in the `exports\summary.xlsx` file.
 
