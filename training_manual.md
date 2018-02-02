@@ -70,9 +70,10 @@ These simulated data contain routine laboratory surveillance data of incident ca
 | `area_name`     | the region in which this infection occurred |
 | `area_code`     | the code for the region                  |
 
-The required files for this training are already in the above format. Download the project directory here:
+The required files for this training are already in the above format. 
+<a href="https://github.com/alexbhatt/stata_training/blob/master/stata_training_materials.zip?raw=true" target="_blank">Click here to download the training files project directory</a>
 
-Extract the contents of the zip file to your chosen project directory. The project directory is wherever you choose to save contents of the unzipped folder. Open the do file `code\StataTraining_dCMM.do` in Stata (v12.0 or higher required). Compete your code in the provided template do file.
+Extract the contents of the zip file to your chosen project directory. The project directory is wherever you choose to save contents of the unzipped folder. Open the do file `code\StataTraining_dCMM.do` in Stata (v12.0 or higher required). Complete your code in the provided template do file.
 
 
 
